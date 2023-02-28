@@ -5,9 +5,9 @@ interface IProps extends React.ComponentProps<'button'>{
   selected?: boolean;
 }
 
-export const IconButton: React.FunctionComponent<PropsWithChildren<IProps>> = ({classnames, selected = false, children }) => {
+export const IconButton: React.FunctionComponent<PropsWithChildren<IProps>> = ({classnames, children }) => {
   return (
-    <button className={`w-12 h-12 my-6 flex justify-center items-center rounded-xl ${selected ? 'bg-blue' : 'bg-grey'} ${classnames}`}>
+    <button className={`w-12 h-12 my-6 flex justify-center items-center rounded-xl ${classnames}`}>
       {children}
     </button>
   );

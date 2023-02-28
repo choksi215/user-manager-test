@@ -9,13 +9,13 @@ export const Layout = ({ children }: any) => {
       <div className='pt-6 pb-6 px-6 flex flex-col justify-between'>
         <div className='flex flex-col items-center'>
           <div className='mb-7 flex justify-center'>
-            <Image src='/logo_prediko.svg' alt='prediko logo' width={41} height={48} />
+            <Image src='/logo_prediko.svg' alt='prediko logo' width={30} height={30} />
           </div>
           <IconButton>
             <UsersIcon className='w-6 h-6 text-mediumGrey' />
           </IconButton>
           <IconButton selected>
-            <UserCircleIcon className='w-6 h-6 text-white' />
+            <UserCircleIcon className='w-6 h-6 text-mediumGrey' />
           </IconButton>
           <IconButton>
             <Cog8ToothIcon className='w-6 h-6 text-mediumGrey' />

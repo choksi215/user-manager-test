@@ -1,0 +1,13 @@
+{
+    "firstName": "First name",
+    "lastName": "Last name",
+    "title": "Add user",
+    "subtitle": "User information",
+    "role": "Role",
+    "email": "Email",
+    "admin": "Admin",
+    "dev": "Developer",
+    "rolePlaceholder": "Select role",
+    "submit": "Save and add",
+    "deleteUser": "Delete user"
+}

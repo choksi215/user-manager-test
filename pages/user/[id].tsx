@@ -50,18 +50,19 @@ const Component = () => {
                 </Link>
                 <h2 className='ml-9 font-bold text-title text-darkGrey drop-shadow-xs'>{t.title}</h2>
               </div>
-              <div className="flex justify-start pt-6">
+              <div className="flex items-center">
                 <button
                   type="button"
-                  className="py-3.5 px-4 bg-red font-medium rounded-xl text-text text-white"
+                  className="py-3.5 px-4 bg-red font-medium rounded-xl text-white"
                   onClick={() => onClick()}
                 >
                   {t.deleteUser}
                 </button>
               </div>
             </div>
-            <div className="py-8 px-14 h-[76%] bg-white rounded-xl">
-              <div className="max-w-[80%] mt-8 grid grid-cols-3 gap-y-8 gap-x-28">
+            <div className="py-8 px-14 h-[76%] bg-white rounded-xl h-auto">
+              <span className='text-subtitle text-darkGrey font-bold'>{t.details}</span>
+              <div className="max-w-[80%] grid grid-cols-3 gap-y-8 gap-x-28 mt-8">
                 <div className="flex flex-col justify-center">
                   <label htmlFor="first_name">{t.firstName}</label>
                   <input

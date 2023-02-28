@@ -59,8 +59,8 @@ export default function AddUserPage() {
                 {t.submit}
               </button>
             </div>
-            <div className='pt-8 pl-14 h-[76%] bg-white rounded-xl'>
-              <span className='text-subtitle text-darkGrey font-bold drop-shadow-xs'>{t.subtitle}</span>
+            <div className='py-8 px-14 h-[76%] bg-white rounded-xl h-auto'>
+              <span className='text-subtitle text-darkGrey font-bold'>{t.subtitle}</span>
               <div className='max-w-[80%] mt-8 grid grid-cols-3 gap-y-8 gap-x-28'>
                 <div className='flex flex-col'>
                   <Label label={t.firstName} htmlFor='firstName' />

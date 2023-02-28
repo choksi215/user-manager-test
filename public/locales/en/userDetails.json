@@ -3,6 +3,7 @@
     "lastName": "Last name",
     "title": "Add user",
     "subtitle": "User information",
+    "details": "User details",
     "role": "Role",
     "email": "Email",
     "admin": "Admin",

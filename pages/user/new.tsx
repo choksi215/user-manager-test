@@ -12,7 +12,6 @@ import { UserCreate } from '@/models/User';
 
 import t from '@/public/locales/en/userDetails.json';
 
-
 const options: { label: string; value: string }[] = [
   {
     label: 'Administrator',

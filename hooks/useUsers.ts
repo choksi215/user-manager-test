@@ -10,6 +10,7 @@ interface UseUsersOutput {
   isFetching: boolean;
   isError: boolean;
   addUser: (newUser: UserCreate) => Promise<void>;
+  updateUser: (id: string, updateUserData:UserInput) => Promise<void>;
   deleteUser: (id: string) => Promise<void>;
 }
 
@@ -37,6 +38,22 @@ export const useUsers = (): UseUsersOutput => {
     await fetcher(`${apiUrl}`, requestOptions);
   };
 
+  const updateUser = async (id:string, updateUserData: UserInput) => {
+    const requestOptions = {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        id: updateUserData.id,
+        first_name: updateUserData.first_name,
+        last_name: updateUserData.last_name,
+        email: updateUserData.email,
+        role: updateUserData.role
+      })
+    };
+
+    await fetcher(`${apiUrl}${id}`, requestOptions);
+  };
+
   const deleteUser = async (id:string) => {
     const requestOptions = {
       method: 'DELETE',
@@ -46,7 +63,7 @@ export const useUsers = (): UseUsersOutput => {
     await fetcher(`${apiUrl}${id}`, requestOptions);
   };
 
-  return { users: data || [], isFetching: !error && !data, isError: error, addUser, deleteUser };
+  return { users: data || [], isFetching: !error && !data, isError: error, addUser, updateUser, deleteUser };
 };
 
 export const getUser = (id: string): ViewUsersOutput => {

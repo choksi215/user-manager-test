@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import { useRouter } from 'next/router'
-import { useForm } from "react-hook-form";
+import { SubmitHandler, useForm } from 'react-hook-form';
 
 import { Layout } from '@/components/Layout';
 import { IconButton } from '@/components/atoms/IconButton';
@@ -16,7 +16,7 @@ const Component = () => {
   const router = useRouter()
   const { id: userId } = router.query
 
-  const { deleteUser } = useUsers();
+  const { deleteUser, updateUser } = useUsers();
 
   const { user: user, isError: isError } = getUser(userId as string);
 
@@ -24,6 +24,14 @@ const Component = () => {
 
   const onClick = () => {
     deleteUser(userId as string);
+    reset();
+    router.push('/');
+  };
+
+  const onUpdate: SubmitHandler<UserInput> = (userData) => {
+    userData["id"] = userId as string;
+    console.log('data', userData);
+    updateUser(userId as string, userData as UserInput);
     reset();
     router.push('/');
   };
@@ -38,8 +46,8 @@ const Component = () => {
       </Head>
       <main>
         <Layout>
-          <form onSubmit={handleSubmit(()=> console.log('updated'))} className="p-5 h-screen">
-          <div className='mb-10 p-8 flex flex-row justify-between bg-white rounded-xl'>
+          <form onSubmit={handleSubmit(onUpdate)} className="p-5 h-screen">
+            <div className='mb-10 p-8 flex flex-row justify-between bg-white rounded-xl'>
               <div className='flex flex-row items-center'>
                 <Link href='/'>
                   <IconButton classnames='w-6 h-6 my-0 bg-brown rounded-full'>
@@ -66,7 +74,6 @@ const Component = () => {
                   <input
                     {...register("first_name", { required: true, maxLength: 20 })}
                     className="p-3.5 rounded border-lightGrey border-solid border-2 text-grey text-text font-light"
-                    disabled
                     onChange={(e) => {
                       setValue("first_name", e.target.value);
                     }}
@@ -80,7 +87,6 @@ const Component = () => {
                       pattern: /^[A-Za-z]+$/i,
                       required: true,
                     })}
-                    disabled
                     className="p-3.5 rounded border-lightGrey border-solid border-2 text-grey text-text font-light"
                     onChange={(e) => {
                       setValue("last_name", e.target.value);
@@ -92,7 +98,6 @@ const Component = () => {
                   <label htmlFor="email">{t.email}</label>
                   <input
                     {...register("email", { required: true })}
-                    disabled
                     type="email"
                     className="p-3.5 rounded border-lightGrey border-solid border-2 text-grey text-text font-light"
                     onChange={(e) => {
@@ -105,7 +110,6 @@ const Component = () => {
                   <label htmlFor="role">{t.role}</label>
                   <select
                     {...register("role")}
-                    disabled
                     className="p-3.5 rounded border-lightGrey border-solid border-2 text-grey text-text font-light"
                     onChange={(e) => {
                       setValue("role", e.target.value);
@@ -115,6 +119,14 @@ const Component = () => {
                     <option value="ADMIN">{t.admin}</option>
                     <option value="DEV">{t.dev}</option>
                   </select>
+                </div>
+                <div className="flex flex-col justify-center">
+                  <button
+                    type='submit'
+                    className="py-3.5 px-4 bg-green font-medium rounded-xl text-white"
+                  >
+                    update
+                  </button>
                 </div>
               </div>
             </div>

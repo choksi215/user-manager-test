@@ -22,7 +22,7 @@ const Component = () => {
 
   const { register, handleSubmit, setValue, reset } = useForm<UserInput>();
 
-  const onClick = () => {
+  const onDelete = () => {
     deleteUser(userId as string);
     reset();
     router.push('/');
@@ -30,10 +30,9 @@ const Component = () => {
 
   const onUpdate: SubmitHandler<UserInput> = (userData) => {
     userData["id"] = userId as string;
-    console.log('data', userData);
     updateUser(userId as string, userData as UserInput);
     reset();
-    router.push('/');
+    // router.push('/');
   };
 
   return (
@@ -60,7 +59,7 @@ const Component = () => {
                 <button
                   type="button"
                   className="py-3.5 px-4 bg-red font-medium rounded-xl text-white"
-                  onClick={() => onClick()}
+                  onClick={() => onDelete()}
                 >
                   {t.deleteUser}
                 </button>

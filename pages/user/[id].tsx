@@ -8,7 +8,7 @@ import { IconButton } from '@/components/atoms/IconButton';
 import Spinner from "@/components/atoms/Spinner";
 import { ChevronLeftIcon } from '@heroicons/react/24/outline';
 
-import { getUser, useUsers } from '@/hooks/useUsers';
+import { GetUser, useUsers } from '@/hooks/useUsers';
 import { UserInput } from '@/models/User';
 
 import t from '@/public/locales/en/userDetails.json';
@@ -20,7 +20,7 @@ const Component = () => {
 
   const { deleteUser, updateUser } = useUsers();
 
-  const { user, isError, isFetching } = getUser(userId as string);
+  const { user, isError, isFetching } = GetUser(userId as string);
 
   const { register, handleSubmit, setValue, reset } = useForm<UserInput>();
 

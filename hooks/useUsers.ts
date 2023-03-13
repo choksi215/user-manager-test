@@ -66,7 +66,7 @@ export const useUsers = (): UseUsersOutput => {
   return { users: data || [], isFetching: !error && !data, isError: error, addUser, updateUser, deleteUser };
 };
 
-export const getUser = (id: string): ViewUsersOutput => {
+export const GetUser = (id: string): ViewUsersOutput => {
   const { data, error } = useSWR(`${apiUrl}${id}`, fetcher);
 
   return { user: data || [], isFetching: !error && !data, isError: error };

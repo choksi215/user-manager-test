@@ -5,6 +5,7 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 
 import { Layout } from '@/components/Layout';
 import { IconButton } from '@/components/atoms/IconButton';
+import Spinner from "@/components/atoms/Spinner";
 import { ChevronLeftIcon } from '@heroicons/react/24/outline';
 
 import { getUser, useUsers } from '@/hooks/useUsers';
@@ -15,10 +16,11 @@ import t from '@/public/locales/en/userDetails.json';
 const Component = () => {
   const router = useRouter()
   const { id: userId } = router.query
+  const isReady = router.isReady
 
   const { deleteUser, updateUser } = useUsers();
 
-  const { user: user, isError: isError } = getUser(userId as string);
+  const { user, isError, isFetching } = getUser(userId as string);
 
   const { register, handleSubmit, setValue, reset } = useForm<UserInput>();
 
@@ -32,8 +34,12 @@ const Component = () => {
     userData["id"] = userId as string;
     updateUser(userId as string, userData as UserInput);
     reset();
-    // router.push('/');
+    router.reload();
   };
+
+  if ((!user && !isError) || !isReady || isFetching) {
+    return <Spinner />;
+  }
 
   return (
     <>

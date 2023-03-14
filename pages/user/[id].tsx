@@ -77,7 +77,11 @@ const Component = () => {
                 <div className="flex flex-col justify-center">
                   <label htmlFor="first_name">{t.firstName}</label>
                   <input
-                    {...register("first_name", { required: true, maxLength: 20 })}
+                    {...register("first_name", {
+                      pattern: /^[A-Za-z]+$/i,
+                      required: true, 
+                      maxLength: 20 
+                    })}
                     className="p-3.5 rounded border-lightGrey border-solid border-2 text-grey text-text font-light"
                     onChange={(e) => {
                       setValue("first_name", e.target.value);
@@ -102,7 +106,10 @@ const Component = () => {
                 <div className="flex flex-col justify-center">
                   <label htmlFor="email">{t.email}</label>
                   <input
-                    {...register("email", { required: true })}
+                    {...register("email", {
+                      pattern: /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/i,
+                      required: true
+                    })}
                     type="email"
                     className="p-3.5 rounded border-lightGrey border-solid border-2 text-grey text-text font-light"
                     onChange={(e) => {

@@ -37,6 +37,8 @@ const Component = () => {
     router.reload();
   };
 
+  if (isError) return <div>Failed to fetch users.</div>
+
   if ((!user && !isError) || !isReady || isFetching) {
     return <Spinner />;
   }

@@ -34,7 +34,7 @@ export default function Home({ users }: { users: User[] }) {
       </Head>
       <main>
         <Layout>
-          <div className='mt-10 mx-32'>
+          <div className='p-8'>
             <h2 className='font-bold text-title text-darkGrey'>{t.title}</h2>
             <div className='my-8 h-14 flex flex-row justify-between'>
               <div className='p-5 w-80 flex flex-row items-center bg-white shadow-xs drop-shadow-xs rounded-2xl'>

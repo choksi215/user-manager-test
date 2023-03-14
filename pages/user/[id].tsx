@@ -75,7 +75,7 @@ const Component = () => {
             </div>
             <div className="py-8 px-14 h-[76%] bg-white rounded-xl h-auto">
               <span className='text-subtitle text-darkGrey font-bold'>{t.details}</span>
-              <div className="max-w-[80%] grid grid-cols-3 gap-y-8 gap-x-28 mt-8">
+              <div className="max-w-[80%] grid grid-cols-3 gap-y-8 gap-x-20 mt-8">
                 <div className="flex flex-col justify-center">
                   <label htmlFor="first_name">{t.firstName}</label>
                   <input

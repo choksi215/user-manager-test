@@ -18,20 +18,20 @@ export const Layout = ({ children }: any) => {
           </div>
           <Link href='/'>
             <IconButton selected={path=== '/'? true : false}>
-              <UsersIcon className='w-6 h-6 text-mediumGrey' />
+              <UsersIcon className='w-6 h-6 text-black' />
             </IconButton>
           </Link>
           <Link href='/user/new'>
             <IconButton selected={path=== '/user/new'? true : false}>
-              <UserPlusIcon className='w-6 h-6 text-mediumGrey' />
+              <UserPlusIcon className='w-6 h-6 text-black' />
             </IconButton>
           </Link>
-          <IconButton>
+          <IconButton disabled>
             <Cog8ToothIcon className='w-6 h-6 text-mediumGrey' />
           </IconButton>
         </div>
         <div>
-          <IconButton>
+          <IconButton disabled>
             <ArrowLeftOnRectangleIcon className='w-6 h-6 text-mediumGrey' />
           </IconButton>
         </div>
